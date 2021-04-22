@@ -6,6 +6,7 @@ import {
     renderEditForm,
     updatePost,
     deletePost,
+    renderUsersPosts,
 } from "../controllers/postsController.js"
 
 import { isAuthenticated } from "../helpers/auth.js"
@@ -20,6 +21,9 @@ router.post('/posts/new-post', isAuthenticated, createNewPost)
 
 // Get All Posts
 router.get('/posts', isAuthenticated, renderPosts)
+
+// Get All Users Posts
+router.get('/news-posts', isAuthenticated, renderUsersPosts)
 
 // Edit Posts
 router.get('/posts/edit/:id', isAuthenticated, renderEditForm)

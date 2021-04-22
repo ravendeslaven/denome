@@ -1,8 +1,25 @@
 import Post from '../models/Post.js'
+import User from '../models/User.js'
+import mongoose from 'mongoose'
 
 // Render create post view  
 export const renderPostForm = (req, res) => {
     res.render('posts/new-post')
+}
+
+// Render posts share
+export const renderUsersPosts =  async (req, res) => {
+    const postsUsers = await Post.find({})
+        .sort({ date: "desc" })
+        .lean()
+    const usersPosts = await User.find({})
+        .sort({ date: "desc"})
+        .lean()
+    const user = new User()
+    res.render('posts/users-posts', { postsUsers, usersPosts })
+
+    
+    
 }
 
 // Create Post
@@ -60,4 +77,10 @@ export const deletePost = async (req, res) => {
     await Post.findByIdAndDelete(req.params.id)
     req.flash('success_msg', 'Post Deleted Succesfully')
     res.redirect('/posts')
+}
+
+
+// View for all posts done by users
+export const viewAllPosts = async(req, res) => {
+    mongoose.Collection()
 }

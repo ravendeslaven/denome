@@ -6,6 +6,8 @@ import {
     renderSigninForm,
     signin,
     logout,
+    //User config
+    renderUserConfig,
     // Moderators
     renderSigninFormMod,
 
@@ -26,6 +28,8 @@ router.post('/users/signin', signin)
 
 router.get('/users/logout', logout)
 
+// User config
+router.get('/users/config', renderUserConfig)
 
 // Recover account
 router.get('/users/recover-account', renderRecoverAccountForm)

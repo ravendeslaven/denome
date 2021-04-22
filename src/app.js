@@ -22,6 +22,7 @@ import config from "./config.js"
 
 import indexRoutes from "./routes/indexRoutes.js"
 import postsRoutes from "./routes/postsRoutes.js"
+import callendarsRoutes from './routes/calendarsRoutes.js'
 import userRoutes from "./routes/usersRoutes.js"
 import "./config/passport.js"
 
@@ -74,6 +75,7 @@ app.use((req, res, next) => {
 app.use(indexRoutes)
 app.use(userRoutes)
 app.use(postsRoutes)
+app.use(callendarsRoutes)
 
 // Static Files
 app.use(express.static(path.join(__dirname, 'public')))
