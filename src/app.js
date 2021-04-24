@@ -71,6 +71,7 @@ app.use((req, res, next) => {
 })
 
 
+
 // Routes
 app.use(indexRoutes)
 app.use(userRoutes)

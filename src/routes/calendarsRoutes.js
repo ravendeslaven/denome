@@ -24,7 +24,7 @@ router.post('/calendars/new-calendar', isAuthenticated, createNewCalendar)
 
 
 // Get all Calendars by users
-router.get('/news-calendars', isAuthenticated, renderCalendarsView )
+router.get('/news-calendars', renderCalendarsView )
 
 // Edit Calendar
 /router.get('/calendars/edit/:id', isAuthenticated, renderEditForm)

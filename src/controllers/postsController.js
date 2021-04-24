@@ -48,7 +48,8 @@ export const renderPosts = async (req, res) => {
     const posts = await Post.find( {user: req.user.id })
         .sort({ date: "desc"})
         .lean()
-    res.render('posts/all-posts', { posts })
+    const { name } = req.user
+    res.render('posts/all-posts', { posts, name })
 }
 
 

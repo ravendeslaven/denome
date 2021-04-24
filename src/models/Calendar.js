@@ -7,13 +7,17 @@ const CalendarSchema = new Schema(
         color: { type: String, required: true},
         start: { type: Date},
         end: { type: Date },
-        user: { type: String, required: true }
+        user: {
+            id: { type: String, required: true},
+            name: { type: String, required: true}
+        },
     },
     {
         timestamps: true,
         versionKey: false,
     }
 )
+
 
 export default model('Calendar', CalendarSchema)
 

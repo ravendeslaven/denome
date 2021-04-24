@@ -12,12 +12,7 @@ export const renderCalendarsView =  async (req, res) => {
     const calendarsUsers = await Calendar.find({})
         .sort({ date: "desc" })
         .lean()
-    const usersCalendars = await User.find({})
-        .sort({ date: "desc"})
-        .lean()
-    const user = new User()
-    res.render('calendars/users-calendars', { calendarsUsers, user  })
-
+    res.render('calendars/users-calendars', { calendarsUsers })
     
     
 }
@@ -40,8 +35,9 @@ export const createNewCalendar = async (req, res) => {
             end
         })
     } else {
-        const newCalendar = new Calendar({ title, color, start, end })
-        newCalendar.user = req.user.id // Relation between calendar with our user
+        const newCalendar = new Calendar({ title, color, start, end  })
+        newCalendar.user.id = req.user.id
+        newCalendar.user.name = req.user.name // Relation between calendar with our user
         await newCalendar.save()
         req.flash('success_msg', 'Calendar Added Succesfully')
         res.redirect('/calendars')
@@ -54,7 +50,8 @@ export const renderCalendars = async (req, res) => {
     const calendars = await Calendar.find( {user: req.user.id})
         .sort({ date: "desc" })
         .lean()
-    res.render('calendars/all-calendars', { calendars  })
+    const { name } = req.user
+    res.render('calendars/all-calendars', { calendars, name  })
 }
 
 // Render Edit View
