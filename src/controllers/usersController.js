@@ -53,7 +53,9 @@ export const logout = (req, res) => {
 
 // Me section. Config user properties
 export const renderUserConfig = async (req, res) => {
-    res.render('users/config/me')
+    const admin = req.user.admin
+    const rol = req.user.rol
+    res.render('users/config/me', {admin, rol})
 }
 
 // Recover account

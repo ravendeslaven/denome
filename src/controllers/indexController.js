@@ -1,5 +1,5 @@
-export const renderIndex = (req, res) => {
-    res.render('index')
+export const renderIndex =  (req, res) => {
+    res.render('index',)
 }
 
 export const renderAbout = (req, res) => {

@@ -1,5 +1,6 @@
 import express from "express"
 import exphbs from "express-handlebars"
+import Handlebars from 'handlebars'
 import path from "path"
 
 // Intance of __dirname and __filename string methods form path, to show actual path
@@ -17,12 +18,13 @@ import morgan from "morgan"
 import MongoStore from "connect-mongo"
 
 
-import { createAdminUser } from "./lib/createUser.js"
+import { createAdminUser, createModUser } from "./lib/createUser.js"
 import config from "./config.js"
 
 import indexRoutes from "./routes/indexRoutes.js"
 import postsRoutes from "./routes/postsRoutes.js"
 import callendarsRoutes from './routes/calendarsRoutes.js'
+import proyectRoutes from './routes/proyectRoutes.js'
 import userRoutes from "./routes/usersRoutes.js"
 import "./config/passport.js"
 
@@ -31,7 +33,6 @@ import "./config/passport.js"
 const app = express()
 createAdminUser()
 
-
 // Settings
 app.set('port',  config.PORT )
 app.set('views', path.join(__dirname, 'views'))
@@ -39,7 +40,12 @@ app.engine('hbs', exphbs({
         defaultLayout: 'main',
         layoutsDir: path.join(app.get('views'), 'layouts'),
         partialsDir: path.join(app.get('views'), 'partials'),
-        extname: 'hbs',
+        extname: 'hbs'
+        //helpers: {
+            //with: function(context, options) {
+            //    return options.fn(context)
+          //  }
+        //},
     })
 )
 app.set('view engine', 'hbs')
@@ -53,7 +59,7 @@ app.use(session({
     secret: "secret",
     resave: true,
     saveUninitialized: true,
-    //cookie: { secure: true },
+    cookie: { secure: true },
     store: MongoStore.create({ mongoUrl: config.MONGODB_URI}),
 }))
 app.use(passport.initialize())
@@ -61,12 +67,14 @@ app.use(passport.session())
 app.use(flash())
 
 
+
 // Global variables
 app.use((req, res, next) => {
     app.locals.success_msg = req.flash('success_msg'),
     app.locals.error_msg = req.flash('error_msg'),
     app.locals.error = req.flash('error'),
-    app.locals.user = req.user || null
+    app.locals.user = req.user || null,
+    //app.locals.admin = req.user.admin || null,
     next()
 })
 
@@ -77,6 +85,7 @@ app.use(indexRoutes)
 app.use(userRoutes)
 app.use(postsRoutes)
 app.use(callendarsRoutes)
+app.use(proyectRoutes)
 
 // Static Files
 app.use(express.static(path.join(__dirname, 'public')))

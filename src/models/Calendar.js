@@ -8,7 +8,7 @@ const CalendarSchema = new Schema(
         start: { type: Date},
         end: { type: Date },
         user: {
-            id: { type: String, required: true},
+            id: { type: mongoose.ObjectId, required: true},
             name: { type: String, required: true}
         },
     },

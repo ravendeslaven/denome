@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    {{#with proyects as | proyect |}}
+                    {{#with proyect.calendars as | cal |}}
+                    <p>{{proyect.name}}: {{cal.title}}</p>
+                    <p>{{cal.title}}</p>
+                    <p>{{cal.color}}</p>
+                    {{/with}}
+                    {{/with}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

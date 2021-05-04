@@ -1,0 +1,49 @@
+<div class="contenedor">
+    <header class="mainHeader">
+        <h1 id="title">Welcome to {{proyectInfo.name}} Proyect</h1>
+        <br>    
+    </header>
+    <!-- Image and text -->
+
+
+    <section class="mainSection">
+        <article class="articleContent" id="titleArticle">
+            <header>
+                <h1 class="titleArticle nav-link active">{{ proyectInfo.name }}</h1>
+                <time class="datetime timeArticle"></time>
+            </header>
+            <div class="articleContent">
+                <p class="infoArticle">
+                    {{proyectInfo.description}}
+                </p>
+                <h3>Calendars</h3>
+                {{#each infoCalendars}}
+                    <p>{{ title }}</p>
+                {{/each}}
+                <div class="paragraphs">
+                </div>
+            </div>
+        </article>
+    </section>
+    <aside class="mainAside">
+        <article class="articleContent">
+            <p class="infoArticle_Two">
+                Roa rose to international fame
+                in the early 1990s as part of Seattle's grunge movement. Staley was known for his distinct vocal style
+                and tenor voice, as well as his
+                harmonizing with guitarist/vocalist Jerry Cantrell. Staley was also a member of the glam metal bands
+                Sleze and Alice N' Chains, and the
+                supergroups Mad Season and Class of '99.
+            </p>
+            <br>
+            <p class="infoArticle_Two">
+                which rose to international fame
+                in the early 1990s as part of Seattle's grunge movement. Staley was known for his distinct vocal style
+                and tenor voice, as well as his
+                harmonizing with guitarist/vocalist Jerry Cantrell. Staley was also a member of the glam metal bands
+                Sleze and Alice N' Chains, and the
+                supergroups Mad Season and Class of '99.
+            </p>
+        </article>
+    </aside>
+</div>

@@ -1,0 +1,219 @@
+header{
+    padding: 15px;
+    /*border: 1px solid black;*/
+}
+
+/* Section */
+
+.contenedor{
+    width: 1355px;
+    max-width: 1355px;
+    margin: 0 auto;
+    overflow: hidden;
+    /*border: 1px solid black; */
+}
+
+.mainHeader{
+    padding: 3%;
+    margin: 1.5%;
+    /*border: 1px solid black;*/
+    width: 97.8%;
+        
+}
+
+
+.mainNav{
+
+    padding: 10px;
+    margin: 20px;
+    /*border: 1px solid black;*/
+    
+}
+
+.mainSection{
+    display: inline-block;
+    width: 68%;
+    
+    margin: 1.5%;
+    padding: 1%;
+    
+}
+
+.mainAside{
+   display: inline-block;
+   width: 20%;
+   max-width: 400px;
+
+   margin: 1.5%;
+   padding: 1%;
+   /*border: 1px solid black; */
+   
+  
+
+    
+    
+}
+
+
+
+
+/* Articles */
+
+.articleContent{
+    display: inline-block;
+    padding: 2%;
+    /*border: 1px solid black; */
+    width: 100%;
+    position: relative;
+    top: auto;
+    
+}
+
+
+.titleArticle{
+    font-size: 250%;
+    padding: 2% ;    
+}
+
+.timeArticle{
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: solid;
+    font-family: 'DotGothic16', sans-serif;
+    position: relative;
+    left: 20px;
+}
+
+.subtitleArticle{
+    font-size: 18px;
+    padding: 15px;
+}
+
+
+
+
+
+
+
+
+/* Trabajando en la sección About */
+
+
+#articleContentAbout{
+    display: inline-block;
+    padding: 20px;
+    /*border: 1px solid black;*/
+    
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    height: auto;
+
+    width: 55%;
+}
+
+
+#articleContentNoni{
+    display: inline-block;
+    /*border: 1px solid black;*/
+    width: 100%;
+}
+
+/*
+.paragraphAbout{
+    width: 33%;
+    display: inline-block;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-shadow:black;
+    margin: 0;
+}
+*/
+
+
+
+/* Fin trabajo */
+
+
+
+.images{
+    display: inline-block;
+    width: 55%;
+    object-position: left;
+    display: flex;
+}
+
+
+.paragraphs{
+    display: inline-block;
+    width: 40%;
+    object-position: right;
+    display: flex;
+}
+
+.infoArticle{
+    display: block;
+    width: 100%;
+    margin: 1%;
+    font-size: 120%;
+    /*border: 1px solid black; */
+    right: 10px;
+    top: 10px;
+
+}
+
+.infoArticle_Two{
+    display: block;
+    width: 100%;
+    margin: 1%;
+    font-size: 120%;
+    /*border: 1px solid black; */
+    top: 10px;
+ 
+
+}
+
+
+
+/* About */
+.p-imgAbout{
+    width: 60%;
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    width: 35%; 
+    position: absolute; 
+    top: 1860px;
+    left: 800px;
+}
+
+
+/* Asides*/
+
+.titleAside{
+    position: relative;
+    left: auto;
+    padding: 15px;
+    
+}
+
+.subtitleAside{
+    padding: 15px;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.imgAside{
+    width: 80%;
+    display: inline-block;
+    margin: 0;
+}   
+
+
+
+#iframe{
+    padding: 15px;
+}
+

@@ -16,7 +16,7 @@ export const renderUsersPosts =  async (req, res) => {
         .sort({ date: "desc"})
         .lean()
     const user = new User()
-    res.render('posts/users-posts', { postsUsers, usersPosts })
+    res.render('posts/users-posts', { postsUsers, usersPosts, user })
 
     
     
@@ -36,7 +36,8 @@ export const createNewPost = async (req, res) => {
         })
     } else {
         const newPost = new Post({ title, description})
-        newPost.user = req.user.id
+        newPost.user.id = req.user.id
+        newPost.user.name = req.user.name
         await newPost.save()
         req.flash('success_msg', 'Post Added Succesfully')
         res.redirect('/posts')
@@ -45,7 +46,7 @@ export const createNewPost = async (req, res) => {
 
 // Render Posts View
 export const renderPosts = async (req, res) => {
-    const posts = await Post.find( {user: req.user.id })
+    const posts = await Post.find( {'user.id': req.user.id })
         .sort({ date: "desc"})
         .lean()
     const { name } = req.user

@@ -1,0 +1,19 @@
+Si el usuario existente tiene calendarios disponibles, bucarlos y almacenarlos para decidir si guardar estos calendarios dentro un proyecto
+
+1. Crear vista para crear un proyecto
+2. Almacenar un proyecto, luego permitir almacenar los calendarios disponibles o crear uno nuevo para el proyecto
+3. Habilitar opción al momento de crear un calendario, usuario puede crear y almacenar calendarios en su propia cuenta o en un proyecto.
+
+
+Tengo un array de arrays y quiero almacenar todos estos datos en un unico array
+
+Falta imprimir el proyecto con su nombre, terminar relación entre proyecto, calendario, posts
+
+Sistema crud proyecto incompleto
+Create-> Done
+Read-> Done
+Update-> Incomplete
+Delete->Incomplete
+
+
+Terminar modelo de datos para grupos y lograr relación.

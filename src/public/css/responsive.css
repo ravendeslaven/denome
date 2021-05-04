@@ -1,0 +1,46 @@
+@media screen and (max-width: 1347px) {
+    .contenedor{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1270px) {
+    .contenedor{
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 970px){
+    .contenedor{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .contenedor{
+        width: 100%;
+    }
+
+    .mainSection{
+        width: 100%;
+    }
+
+    .mainAside{
+        display: block;
+        width: 100%;
+        max-width: 950px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .contenedor{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .contenedor{
+        width: 100%;
+    }
+}

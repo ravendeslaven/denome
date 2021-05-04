@@ -10,9 +10,8 @@ import {
 } from '../controllers/calendarsController.js'
 
 import { isAuthenticated } from '../helpers/auth.js'
-import router from './indexRoutes.js'
 
-const rotuter = Router()
+const router = Router()
 
 // New calendar
 router.get('/calendars/new-calendar', isAuthenticated, renderCalendarForm)

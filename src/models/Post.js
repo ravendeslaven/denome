@@ -12,8 +12,8 @@ const PostSchema = new Schema(
             required: true,
         },
         user: {
-            type: String,
-            required: true,
+            id: { type: mongoose.ObjectId, required: true},
+            name: { type: String, required: true}
         },
     },
     {
