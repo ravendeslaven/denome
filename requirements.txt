@@ -17,3 +17,6 @@ Delete->Incomplete
 
 
 Terminar modelo de datos para grupos y lograr relación.
+
+Centro de investigaciones para criptomonedas, opteniendo los datos en tiempo de real desde coingecko y/o coinmarketcap
+    Premium Versión -> Tabulate Information and manipulate input information for optimized investgations
