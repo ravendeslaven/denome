@@ -1,0 +1,30 @@
+/* Desktop */
+@media screen and(max-width: 1920px) {      /* 1920x1080 - 7,35% */
+
+}
+
+@media screen and(max-width: 1440px) {      /* 1440x900 - 3,17% */
+    .homeSection{
+        width: 1440px;
+        height: 900px;
+    }
+}
+
+/* Laptop */
+@media screen and(max-width: 1366px) {      /* 1366x768 - 11,98% */
+
+}
+
+/* Movil */
+@media screen and(max-width: 720px) {        /* 720x1280 - 2,74%*/
+
+}
+
+
+@media screen and(max-width: 375px) {        /* 375x667 - 5%  */
+
+}
+
+@media screen and(max-width: 360px) {        /* 360x640 - 22,64% */
+
+}

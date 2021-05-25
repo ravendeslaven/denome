@@ -1,3 +1,4 @@
+/*
 import mongoose from 'mongoose'
 import Handlebars from 'handlebars'
 
@@ -119,4 +120,66 @@ export const showProyect = async (req, res) => {
     console.log(name)
     res.render('proyects/show', { proyects, name, namex })
     //Proyect.find({}).lean().then(proyects => res.render('proyects/show', {proyects, calendars}))
+}
+
+*/
+
+import mongoose from 'mongoose'
+
+import Calendar from '../models/Calendar.js'
+import User from '../models/User.js'
+import Proyect from '../models/Proyect.js'
+import Post from '../models/Blog.js'
+
+
+export const showProyects =  async(req, res) => {
+    await Proyect.find((err, proyects) => {
+        if(err) res.send(500, err.message)
+
+        console.log('GET /proyects')
+        res.status(200).jsonp(proyects)
+    })
+}
+
+// Definir el resto de controladres una vez finalice el diseño front-end
+export const addProyect = async(req, res) => {
+    console.log('POST')
+    
+    const proyect = new Proyect({
+        name: req.body.name,
+        description: req.body.description,
+        calendar: req.body.calendar,
+        blogs: req.body.blogs
+    })
+
+    proyect.save((err, proyect) => {
+        if(err) return res.status(500).send(err.message)
+        res.status(200).jsonp(proyect)
+    })
+
+    // Name, Calendar, posts, description = datos que solicito al momento de guardar un proyecto
+    
+}
+
+export const editProyect = async (req, res) => {
+    await Proyect.findById(req.params.id, (err, proyect) => {
+        proyect.name = req.body.name,
+        proyect.description = req.body.description,
+        proyect.calendar = req.body.calendar,
+        proyect.blogs = req.body.blogs
+
+        proyect.save((err) => {
+            if(err) return res.status(500).send(err.message)
+            res.send(200).jsonp(proyect)
+        })
+    })
+}
+
+export const delProyect = async(req, res) => {
+    await Proyect.findById(req.params.id, (err, proyect) => {
+        proyect.remove((err) => {
+            if(err) return res.status(500).send(err.message)
+            res.status(200).send()
+        })
+    })
 }

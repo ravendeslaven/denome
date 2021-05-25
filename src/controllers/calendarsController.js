@@ -1,3 +1,4 @@
+/*
 import Calendar from '../models/Calendar.js'
 import User from '../models/User.js'
 import mongoose from 'mongoose'
@@ -76,4 +77,64 @@ export const deleteCalendar = async(req, res) => {
     await Calendar.findByIdAndDelete(req.params.id)
     req.flash('success_msg', 'Calendar Deleted Succesfully')
     res.redirect('/calendars')
+}
+*/
+
+import Calendar from '../models/Calendar.js'
+import User from '../models/User.js'
+import mongoose from 'mongoose'
+
+
+export const showEvents = async(req, res) => {
+    await Calendar.find((err, calendar) => {
+        const events = calendar.calendarEvents
+        if(err) return res.status(500, err.message)
+        res.status(200).jsonp(events)
+    })
+}
+
+export const showCalendar = async(req, res) => { 
+    await Calendar.findById(req.params.id, (err, calendar) => {
+        if(err) res.status(500, err.message)
+        res.status(200).jsonp(calendar)
+    })
+}
+
+
+export const addCalendar = async (req, res) => {
+    console.log('POST')
+
+    const calendar = new Calendar({
+        title: req.body.title,
+        theme: req.body.theme,
+        
+        // Agregar propiedades a agregar al momento de crear un calendario
+    })
+
+    await calendar.save((err, calendar) => {
+        if(err) return res.status(500, err.message)
+        res.status(200).jsonp(calendar)
+    })
+}
+
+
+export const updateCalendar = async(req, res) => {
+    await Calendar.findById(req.params.id, (err, calendar) => {
+        calendar.title = req.body.title,
+        calendar.theme = req.body.theme
+
+        calendar.save((err) => {
+            if(err) return res.status(500, err.message)
+            res.status(200).jsonp(calendar)
+        })
+    })
+}
+
+export const delCalendar = async(req, res) => {
+    await Calendar.findById(req.params.id, (err, calendar) => {
+        calendar.remove((err) => {
+            if(err) return res.status(500, err.message)
+            res.status(200).send()
+        })
+    })
 }

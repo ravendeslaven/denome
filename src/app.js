@@ -2,6 +2,7 @@ import express from "express"
 import exphbs from "express-handlebars"
 import Handlebars from 'handlebars'
 import path from "path"
+import cors from 'cors'
 
 // Intance of __dirname and __filename string methods form path, to show actual path
 import { fileURLToPath } from 'url';
@@ -22,7 +23,7 @@ import { createAdminUser, createModUser } from "./lib/createUser.js"
 import config from "./config.js"
 
 import indexRoutes from "./routes/indexRoutes.js"
-import postsRoutes from "./routes/postsRoutes.js"
+import blogRoutes from "./routes/blogRoutes.js"
 import callendarsRoutes from './routes/calendarsRoutes.js'
 import proyectRoutes from './routes/proyectRoutes.js'
 import userRoutes from "./routes/usersRoutes.js"
@@ -65,6 +66,7 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())
+app.use(cors())
 
 
 
@@ -83,7 +85,7 @@ app.use((req, res, next) => {
 // Routes
 app.use(indexRoutes)
 app.use(userRoutes)
-app.use(postsRoutes)
+app.use(blogRoutes)
 app.use(callendarsRoutes)
 app.use(proyectRoutes)
 

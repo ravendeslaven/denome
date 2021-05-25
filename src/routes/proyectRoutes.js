@@ -1,3 +1,4 @@
+/*
 import { Router } from 'express'
 import { deleteProyect, 
     showProyect, 
@@ -7,20 +8,6 @@ import { deleteProyect,
 } from '../controllers/proyectController.js'
 
 import { isAuthenticated } from '../helpers/auth.js'
-/*import {
-    renderCalendarForm,
-    createNewCalendar,
-    renderCalendars,
-    renderEditForm,
-    updateCalendar,
-    deleteCalendar,
-    renderCalendarsView,
-} from '../controllers/calendarsController.js'
-
-import { isAuthenticated } from '../helpers/auth.js'
-import router from './indexRoutes.js'
-*/
-
 const router = Router()
 
 
@@ -39,6 +26,26 @@ router.post('/proyects/new-proyect', isAuthenticated, createNewProyect)
 // Delete Proyect
 router.post('/proyects/delete/:id', isAuthenticated, deleteProyect)
 
+*/
+
+
+// Metodo API
+import { Router } from 'express'
+import { showProyects,
+         addProyect,
+         editProyect,
+         delProyect
+} from '../controllers/proyectController.js'
+
+
+const router = Router()
+
+// Definir metodos de en el controlador
+
+router.get('/proyects', showProyects) // Muestra todos los proyectos existentes
+router.post('/proyects/add', addProyect)  // Almacenar nuevo proyecto
+router.put('/proyects/edit/:id', editProyect) // Editar el proyecto
+router.post('/proyects/del/:id', delProyect) // Eliminar proyecto
 
 
 export default router

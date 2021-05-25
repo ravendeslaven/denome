@@ -3,15 +3,16 @@ const { Schema, model } = mongoose
 import bcrypt from "bcryptjs"
 import Handlebars from 'handlebars'
 
-const UserSchema = new Schema(
-    {
+const UserSchema = new Schema({
         name: { type: String, trim: true },
         email:{ type: String, required: true, unique: true, trim: true },
         password: { type: String, required: true },
         date: { type: Date, default: Date.now },
-        moderator: { type: Boolean, default: null, trim: true}, //  Mod can edit posts and calendars by users
-        admin: { type: Boolean, default: null, trim: true},
-        rol: { type: Boolean, default: null, trim: true},
+        rol: {
+          mod: { type: Boolean, default: false }, //  Mod can edit posts and calendars by users
+          admin: { type: Boolean, default: false},
+          normal: { type: Boolean, default: true},
+        },
     },
     {
         timestamps: true,

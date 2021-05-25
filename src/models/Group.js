@@ -1,16 +1,28 @@
 import mongoose from 'mongoose'
-import Proyect from 'Proyect.js'
-import User from 'User.js'
 const { model, Schema } = mongoose
 
 const GroupSchema = new Schema({
     name: { type: String, required: true},
-    type: [{}],
-    users: [{ ref: User, }],
-    proyects: [{ref: Proyect}],
-    //forum: {},
-    //chat: [{}],
-    //ranking: { type: Number},
+    users: [{ type: mongoose.ObjectId, ref: 'User' }],
+    proyects: [{ type: mongoose.ObjectId, ref: 'Proyect'}],
+    calendars: [{ type: mongoose.ObjectId, ref: 'Calendar'}],
+    posts: [{ type: mongoose.ObjectId, ref: 'Post'}],
+    forum: {
+        id: { type: mongoose.ObjectId },
+        comments: [{
+            id: { type: mongoose.ObjectId},
+            user: { type: mongoose.ObjectId, ref: 'User'},
+            content: {
+                text: { type: String },
+                img: [{ type: String }],
+                //docs: [{ }]
+            },
+        }]
+    },
+    ranking: [{ 
+        user: { type: mongoose.ObjectId, required: true },
+        score: { type: Number, required: true }
+     }],
     //emotions: {type: String},
 })
 
