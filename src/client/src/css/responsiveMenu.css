@@ -1,0 +1,30 @@
+.nav-menu {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    position: fixed;
+    top: 60px;
+    width: 100%;
+    
+
+    height: calc(100% - 60px);
+    overflow-y: auto;
+
+    left: 100%;
+    transition: left 0.5s;
+}
+
+.nav-menu_visible{
+    left: 0;
+}
+
+.x-close-button{
+    background-image: url('x-close-button.svg');
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 5.5%;
+    width: 10%;
+    height: 7%;
+    -webkit-transition: background-image 1s ease;
+    transition: font-size 1s ease;
+}

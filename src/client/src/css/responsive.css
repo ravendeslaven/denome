@@ -1,31 +1,32 @@
-/* Desktop */
-@media screen and(max-width: 1920px) {      /* 1920x1080 - 7,35% */
+
+/* Extra large devices (large desktops, 1200 px and up */
+
+@media (max-width: 1200px) {
 
 }
 
-@media screen and(max-width: 1440px) {      /* 1440x900 - 3,17% */
-    .homeSection{
-        width: 1440px;
-        height: 900px;
-    }
-}
+/* Large devices (desktops, 992px and up) */
 
-/* Laptop */
-@media screen and(max-width: 1366px) {      /* 1366x768 - 11,98% */
+@media (max-width: 992px) {
 
 }
 
-/* Movil */
-@media screen and(max-width: 720px) {        /* 720x1280 - 2,74%*/
+/* Medium devices (tablets, 768px and up) */
+
+@media (max-width: 768px) {
 
 }
 
+/* Small devices (landscape, phones, 576px and up */
 
-@media screen and(max-width: 375px) {        /* 375x667 - 5%  */
-
-}
-
-@media screen and(max-width: 360px) {        /* 360x640 - 22,64% */
+@media (max-width: 576px) {
 
 }
 
+/* Media queries
+280
+320
+375
+768
+1024
+*/
